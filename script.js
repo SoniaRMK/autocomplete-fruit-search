@@ -83,7 +83,7 @@ const fruits = [
   "Yuzu",
 ];
 
-function search(str) {
+const search = (str) => {
   let results = [];
   for (let fruit of fruits) {
     if (fruit.toLowerCase().includes(str.toLowerCase())) {
@@ -91,14 +91,14 @@ function search(str) {
     }
   }
   return results;
-}
+};
 
-function searchHandler(e) {
+const searchHandler = (e) => {
   const results = search(input.value);
   showSuggestions(results, input.value);
-}
+};
 
-function showSuggestions(results, inputVal) {
+const showSuggestions = (results, inputVal) => {
   suggestions.innerHTML = "";
   for (let result of results) {
     let newResult = document.createElement("li");
@@ -108,12 +108,12 @@ function showSuggestions(results, inputVal) {
   if (inputVal === "") {
     suggestions.innerHTML = "";
   }
-}
+};
 
-function useSuggestion(e) {
+const useSuggestion = (e) => {
   suggestions.innerHTML = "";
   input.value = e.target.innerHTML;
-}
+};
 
 input.addEventListener("keyup", searchHandler);
 suggestions.addEventListener("click", useSuggestion);
